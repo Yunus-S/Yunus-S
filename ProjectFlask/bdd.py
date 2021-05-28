@@ -13,7 +13,7 @@ def main():
     cursor = cnx.cursor()
 
     query = ("INSERT INTO message VALUES (%s,%s)")
-    val = (time(), app.request.form['message'])
+    val = (datetime.datetime.now(), app.request.form['message'])
 
     cursor.execute(query, val)
 

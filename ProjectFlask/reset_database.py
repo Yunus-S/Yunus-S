@@ -23,7 +23,7 @@ def recreate_tables():
     cursor.execute("DROP TABLE IF EXISTS message")
     cursor.execute("DROP TABLE IF EXISTS users")
 
-    cursor.execute("CREATE TABLE message (sent_at VARCHAR(255), content VARCHAR(255))")
+    cursor.execute("CREATE TABLE message (sent_at DATETIME, content VARCHAR(255))")
     cursor.execute("CREATE TABLE users (user_id VARCHAR(255), password VARCHAR(255), email VARCHAR(255) )")
 
     cnx.close()
