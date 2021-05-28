@@ -1,4 +1,3 @@
-import self as self
 import nacl.secret
 import app
 import mysql.connector
