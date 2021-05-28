@@ -36,12 +36,12 @@ def user():
                                   database='message')
     cursor = cnx.cursor()
 
-    query = ("INSERT INTO users VALUES (%s,%s,%s,%s)")
+    query = ("INSERT INTO users VALUES (%s,%s,%s)")
     mdpcrypte = crypt.crypt_mdp(app.request.form['user_password'])
     print(mdpcrypte)
     #mdp = crypt.decrypt_mdp(mdpcrypte)
     #print(mdp)
-    val = (None,app.request.form['user_id'], mdpcrypte,app.request.form['user_mail'])
+    val = (app.request.form['user_id'], mdpcrypte,app.request.form['user_mail'])
 
     cursor.execute(query, val)
 
