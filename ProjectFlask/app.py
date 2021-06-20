@@ -3,7 +3,6 @@ from flask import abort, redirect, url_for, render_template
 from flask import request
 import bdd
 import printMessage
-import crypt
 
 
 # https://flask.palletsprojects.com/en/1.1.x/quickstart/
