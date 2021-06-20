@@ -1,4 +1,3 @@
-import nacl.secret
 import app
 import mysql.connector
 import datetime
@@ -22,11 +21,6 @@ def main():
     cnx.close()
 
 
-def time ():
-    tps = datetime.datetime.now()
-    temps = str(tps.year) + '/' + str(tps.month) + '/' + str(tps.day)
-
-    return temps
 
 
 def user():
@@ -39,8 +33,8 @@ def user():
     query = ("INSERT INTO users VALUES (%s,%s,%s)")
     mdpcrypte = crypt.crypt_mdp(app.request.form['user_password'])
     print(mdpcrypte)
-    #mdp = crypt.decrypt_mdp(mdpcrypte)
-    #print(mdp)
+
+    
     val = (app.request.form['user_id'], mdpcrypte,app.request.form['user_mail'])
 
     cursor.execute(query, val)
