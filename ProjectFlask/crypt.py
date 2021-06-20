@@ -1,19 +1,18 @@
-import nacl.secret
-
-import app
-
-key = b'e57fde1q5se6g8s4eq0jm48j5y2g4j8y'
-
+import bcrypt
 
 def crypt_mdp(mdp):
-    cryptage = nacl.secret.SecretBox(key)
-    return cryptage.encrypt(bytes(mdp, 'utf-8')).hex()
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(mdp.encode('utf-8'), salt)
+    return hashed
 
 
-def decrypt_mdp(mdpcrypt):
-    decryptage = nacl.secret.SecretBox(key)
-    bitconv = bytes.fromhex(mdpcrypt)
-    return decryptage.decrypt(bitconv).decode('utf-8')
+#fonction pour vérifier le hash des mots de passe plus tard, hashed prendra la valeur du mdp hashé dans la base de donné et mdp sera le mot de passe saisie
+def match_mdp(mdpcrypt):
+    hashed = None
+    if bcrypt.checkpw(mdp.encode('utf-8'), hashed):
+        return True
+    else:
+        return False
 
 
 
