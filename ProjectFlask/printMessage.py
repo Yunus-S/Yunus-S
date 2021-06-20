@@ -8,12 +8,11 @@ def main():
                                   database='message')
     cursor = cnx.cursor()
 
-    query = ("SELECT * FROM message")
+    query = ("SELECT DATE_FORMAT(DateMessage, 'Posté le %d/%m/%y à %h:%i:%s'), Message FROM message")
 
     cursor.execute(query,)
 
     liste = cursor.fetchall()
-    #print(liste)
 
     cnx.close()
 
