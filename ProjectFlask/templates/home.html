@@ -38,9 +38,11 @@
     </section>
     <p>
         Historique :
-    </p>
-    <ul>{% for x in message %} <li>{{ x }}</li>{% endfor %}</ul>
+        {%for i in range(0, len)%}
+            <li>{{message[i][0]}}  :  {{message[i][1]}}</li>
+        {%endfor%}
 
+    </p>
 
 </body>
 
