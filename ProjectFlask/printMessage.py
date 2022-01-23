@@ -1,4 +1,3 @@
-import app
 import mysql.connector
 
 def main():
